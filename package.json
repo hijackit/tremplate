@@ -4,7 +4,8 @@
   "description": "Typescript React Template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --open",
+    "bundle": "webpack"
   },
   "author": "Giacomo Petronio",
   "license": "ISC",
@@ -33,4 +34,3 @@
     "webpack-dev-server": "^3.10.3"
   }
 }
-
