@@ -59,17 +59,33 @@ Installing babel plugins does not tell babel to use those plugins: in order to d
 At this point we can write code in typescript, use JSX syntax and leverage all the features of "modern" javascript/typescript and let Babel take care of compiling all these stuff into "plain and simple" javascript.
 
 ## Webpack
+Once we have a bunch of "plain and simple" javascript files, we still need something that:
+* creates a single js file (bundle) from our sources *and* from our depencencies
+* automatically "inject" the bundle into our index.html
 
+And other not-essential yet-useful features:
+* serve the site locally during development with hot-reloading
+* includes source-maps to the bundle
+* (pre) process CSS files
+* rename assets (like images) in order to avoid stale-data when assets gets updated
+* and more...
 
-babel-loader: ^8.1.0,
-clean-webpack-plugin: ^3.0.0,
-copy-webpack-plugin: ^5.1.1,
-css-loader: ^3.4.2,
-file-loader: ^6.0.0,
-html-webpack-plugin: ^4.0.4,
-mini-css-extract-plugin: ^0.9.0,
-style-loader: ^1.1.3,
+For our template project we need to include the core webpack packages:
+* `webpack`
+* `webpack-cli`
 
-webpack: ^4.42.1,
-webpack-cli: ^3.3.11,
-webpack-dev-server: ^3.10.3
+__webpack and babel__: since we don't want to manually call babel *and* webpack, we use the `babel-loader` package. In this way we only need to call webpack, that in turn will call babel for us.
+
+__dev-server__: another essential feature that we want is the development server with hot-reloading features with the `webpack-dev-server` package
+
+__cleanup__: before each new build, we want to cleanup the build folder; for this we need the `clean-webpack-plugin`
+
+__bundle injection__: we need to include the javascript in our index.html page. We can do this manually or leave it to webpack, using `html-webpack-plugin`
+
+__css management__: we can write the css file as a static resource and manually include it in our index.html file *or* we can treat the css file(s) as sources  which can be referenced (imported) from our typescript files and managed by webpack that will also inject the css into our index.html for us. For this we will use `css-loader` and `mini-css-extract-plugin`. The first one allows us to import css in typescript files, the second one generates the CSS files and injects them into our index.html page.
+
+__css assets__: [TODO] what if our css files references some images?
+
+## References
+* [Microsoft TypeScript-Babel-Starter](https://github.com/microsoft/TypeScript-Babel-Starter)
+* [freeCodeCamp webpack 4 tutorial](https://www.freecodecamp.org/news/creating-a-production-ready-webpack-4-config-from-scratch/)
