@@ -1,6 +1,16 @@
 # Tremplate
-Tremplate is a template for a Typescript + React application with basic basic Babel and Webpack configuration.  
-Every library used by this template has been included for a good reason, and the following sections explains these reasons.
+Tremplate is a small template project for a React/Typescript application with Babel and Webpack.
+
+Every library used by this template has been included for a good reason, and the following sections explains these reasons.  
+
+The rationale behind this template is to include only essential libraries needed to build a react application in typescript. This template aims to be a good starting point that can be easily extended with whatever library a user may needed.
+
+## Usage
+Just clone the repo and modify the sources or just use the following files as a reference to build your own project:
+* `package.json`: contains all the runtime and development dependencies described in this readme
+* `tsconfig.json`: the typescript configuration file
+* `babel.config.json`: the babel configuration file
+* `webpack.config.js`: the webpack configuration file
 
 ## Typescript
 One of the main goal of this template is to allow us to write Typescript code. For this we can simply add the `typescript` library, but typescript is much more useful when we include the type definition of the libraries that we will use in the project, that's why we include the type definitions for react:
