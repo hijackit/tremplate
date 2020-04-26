@@ -12,6 +12,10 @@ Just clone the repo and modify the sources or just use the following files as a 
 * `babel.config.json`: the babel configuration file
 * `webpack.config.js`: the webpack configuration file
 
+Inside the package.json file there are just 2 scripts:
+* `start`: starts the development server
+* `bundle`: build everything inside the dist folder ready to be served
+
 ## Typescript
 One of the main goal of this template is to allow us to write Typescript code. For this we can simply add the `typescript` library, but typescript is much more useful when we include the type definition of the libraries that we will use in the project, that's why we include the type definitions for react:
 * `@types/react`
